@@ -32,9 +32,9 @@ ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
 
 Data: The raw data that you want to plot.
 
-Aesthetics aes(): Aesthetics of the geometric and statistical objects, such as position, color, size, shape, and transparency.
+Aesthetics `aes()`: Aesthetics of the geometric and statistical objects, such as position, color, size, shape, and transparency.
 
-Geometries geom_: The geometric shapes that will represent the data.
+Geometries `geom_`: The geometric shapes that will represent the data.
 
 Here's an example:
 
@@ -69,11 +69,11 @@ ggplot(mtcars, aes(x = mpg, y = disp, color = cyl)) +
 ```
 
 
-Anything you put in the ggplot() function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis you set up in aes().
+Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis you set up in `aes()`.
 
-You can also specify aesthetics for a given geom independently of the aesthetics defined globally in the ggplot() function.
+You can also specify aesthetics for a given geom independently of the aesthetics defined globally in the `ggplot()` function.
 
-The + sign used to add layers must be placed at the end of each line containing a layer. If, instead, the + sign is added in the line before the other layer, ggplot2 will not add the new layer and will return an error message.
+The `+` sign used to add layers must be placed at the end of each line containing a layer. If, instead, the `+` sign is added in the line before the other layer, ggplot2 will not add the new layer and will return an error message.
 
 
 
@@ -96,9 +96,3 @@ ggplot(data = mtcars, aes(x = mpg, y = disp)) +
 
 `ggplot2` is a versatile tool for creating high-quality visualizations in R. With its simple syntax and extensive customization options, it's a valuable addition to any data scientist's toolbox.
 
----
-
-Remember to replace the code snippets with your own examples and explanations. Happy coding! 🚀.
-
-Source: Conversation with Bing, 22/01/2024
-(1) en.wikipedia.org. https://en.wikipedia.org/wiki/Ggplot2.
