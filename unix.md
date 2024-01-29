@@ -15,7 +15,7 @@ list all contents that end with .txt
 ls *.txt
 ```
 
-create a new directory call "newDirectory"
+create a new directory called "newDirectory"
 ```
 mkdir newDirectory
 ```
