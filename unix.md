@@ -46,6 +46,17 @@ or
 echo "TEXT03" > newfile03.txt
 ```
 
+remove a file
+```
+rm newfile01.txt
+```
+
+move a file
+```
+mv file02.txt newDirectory
+```
+
+
 copy a file
 ```
 cp newfile01.txt newDirectory
@@ -99,7 +110,12 @@ tail newfile.txt
 
 text search the word "pattern" in a file
 ```
-grep "pattern" newfile.txt
+grep "pattern" newfile02.txt
+```
+
+download and save a file from www to working directory
+```
+wget https://bioinformaticsworkbook.org/Appendix/Unix/assets/saltandpepper.jpg
 ```
 
 
@@ -119,3 +135,13 @@ install a package in ubuntu
 ```
 sudo apt-get install packageName
 ```
+
+
+## References
+https://www.doc.ic.ac.uk/~wjk/UnixIntro/Lecture3.html
+
+https://users.cs.duke.edu/~alvy/courses/unixtut/unix1.html
+
+https://datacarpentry.org/2015-11-04-ACUNS/shell-intro/
+
+https://bioinformaticsworkbook.org/Appendix/Unix/unix-basics-1.html#gsc.tab=0
