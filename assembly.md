@@ -119,6 +119,8 @@ reads shorter than length_required will be discarded, default is 15. (int [=15])
 ``--length_limit``
 reads longer than length_limit will be discarded, default 0 means no limitation. (int [=0])
 
+<br/>
+<br/>
 
 
 Now check the reads we just downloaded. 
@@ -165,4 +167,29 @@ Here we have the filtered Nanopore data. We know that E. coli genome should be a
 flye --nano-raw outSRR27502765.fastq.gz --out-dir outflye --thread 12 -g 6m -m 1000
 ```
 
+
+<br/>
+
+## 4. Check the assembly
+
+### QUAST
+
+Get basic statistics from QUAST (https://quast.sourceforge.net/quast.html)
+
+```
+conda install quast
+```
+
+```
+quast -h
+```
+
+<br/>
+
+now check the assembly:
+
+
+```
+quast assembly.fasta -t 12
+```
 
