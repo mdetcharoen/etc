@@ -34,6 +34,8 @@ which fastq-dump
 
 This should return something like: ``/home/matt/miniconda3/bin/fastq-dump``
 
+<br/>
+
 ### add bioconda channel to your conda
 
 copy these commands into your terminal and hit enter
@@ -45,6 +47,7 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 -----
+<br/>
 
 ## 1. Obtain fastq files
 Please download fastq files from NCBI. We will try to assemble a genome of E. coli from Nanopore reads.
@@ -55,13 +58,22 @@ https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&page_size=10&acc=SRR2750
 Count how many sequences in the fastq file.
 
 ```
-echo $(zcat yourfile.fastq.gz|wc -l)/4|bc
+echo $(zcat SRR27502765.fastq.gz|wc -l)/4|bc
 ```
 
 
 
+<br/>
 
-## 2. Quality control using fastp
+## 2. Quality control 
+
+### using FastQC
+
+FastQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is a basic program to check your sequencing quality.
+
+<br/>
+
+### using fastp
 fastp (https://github.com/OpenGene/fastp) is a all-in-one program to process fastq files.
 install fasp via conda or mamba using
 
@@ -123,6 +135,8 @@ If we want to keep reads longer than 250 bp with quality >= Q25, what fastp comm
 
 
 Although we will not use the original file anymore, never delete it. 
+
+<br/>
 
 ## 3. Assembly using Flye
 
