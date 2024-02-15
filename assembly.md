@@ -15,27 +15,6 @@ Reads can be saved in a Fasta file as text or in a FastQ file along with their q
 
 -----
 
-### Install SRA toolkit
-```
-wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.10/sratoolkit.3.0.10-ubuntu64.tar.gz
-```
-
-```
-tar -vxzf sratoolkit.tar.gz
-```
-
-```
-export PATH=$PATH:$PWD/sratoolkit.3.0.10-ubuntu64/bin
-```
-
-```
-which fastq-dump
-```
-
-This should return something like: ``/home/matt/miniconda3/bin/fastq-dump``
-
-<br/>
-
 ### add bioconda channel to your conda
 
 copy these commands into your terminal and hit enter
