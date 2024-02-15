@@ -57,6 +57,18 @@ https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&page_size=10&acc=SRR2750
 
 Count how many sequences in the fastq file.
 
+<br/>
+
+
+for unzipped fastq file:
+
+```
+echo $(cat SRR27502765.fastq|wc -l)/4|bc
+```
+
+
+for .gz file:
+
 ```
 echo $(zcat SRR27502765.fastq.gz|wc -l)/4|bc
 ```
