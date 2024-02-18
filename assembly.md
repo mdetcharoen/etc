@@ -120,7 +120,9 @@ Now check the reads we just downloaded.
 fastp -i SRR27502765.fastq.gz -o outSRR27502765.fastq.gz
 ```
 
-Fastp will produce 2 output files, fastp.json and fastp.html. 
+Fastp will produce 3 output files, one filtered fastq file and two reports, fastp.json and fastp.html. 
+
+<br/>
 
 How many reads before and after the filtering.
 
@@ -158,6 +160,15 @@ Here we have the filtered Nanopore data. We know that E. coli genome should be a
 flye --nano-raw outSRR27502765.fastq.gz --out-dir outflye --thread 12 -g 6m -m 1000
 ```
 
+
+<br/>
+
+
+
+<details> 
+  <summary>flye output files </summary>
+   A1: JavaScript 
+</details>
 
 <br/>
 
