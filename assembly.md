@@ -218,3 +218,18 @@ now check the assembly:
 quast assembly.fasta -t 12
 ```
 
+### BUSCO
+
+Check gene set completeness using BUSCO (https://busco.ezlab.org/busco_userguide.html#installation-with-conda)
+
+```
+busco -i assembly.fasta -m genome --auto-lineage-prok
+```
+
+## 5. Annotation
+
+Prokka (https://github.com/tseemann/prokka)
+
+```
+prokka --outdir mygenome file.fasta
+```
