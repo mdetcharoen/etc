@@ -122,6 +122,10 @@ fastp -i SRR27502765.fastq.gz -o outSRR27502765.fastq.gz
 
 Fastp will produce 3 output files, one filtered fastq file and two reports, fastp.json and fastp.html. 
 
+
+![image](https://github.com/mdetcharoen/etc/assets/70691598/3178f2b4-bf63-4c78-9847-0c801d8876c3)
+
+
 <br/>
 
 How many reads before and after the filtering.
@@ -167,12 +171,31 @@ flye --nano-raw outSRR27502765.fastq.gz --out-dir outflye --thread 12 -g 6m -m 1
 
 <details> 
   <summary>flye output files </summary>
-   A1: JavaScript 
+  
+  1. assembly.fasta (https://github.com/mdetcharoen/etc/blob/main/assembly.fasta)
+
+  2. assembly_graph.gfa (https://github.com/mdetcharoen/etc/blob/main/assembly_graph.gfa)
+
+  3. assembly_graph.gv (https://github.com/mdetcharoen/etc/blob/main/assembly_graph.gv)
+
+  4. assembly_info.txt (https://github.com/mdetcharoen/etc/blob/main/assembly_info.txt)
+
+  5. flye.log (https://github.com/mdetcharoen/etc/blob/main/flye.log)
+     
 </details>
 
 <br/>
 
 ## 4. Check the assembly
+
+### assembly graph
+
+We will use Bandage (https://rrwick.github.io/Bandage/) to see assembly graph.
+
+Open Bandage > File > Load graph > select .gfa file (assembly_graph.gfa) > Draw graph
+
+![image](https://github.com/mdetcharoen/etc/assets/70691598/12e4a5a6-ad48-46b0-904c-32b279b9b2b4)
+
 
 ### QUAST
 
