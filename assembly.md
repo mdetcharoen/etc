@@ -233,3 +233,46 @@ Prokka (https://github.com/tseemann/prokka)
 ```
 prokka --outdir mygenome file.fasta
 ```
+
+
+
+
+-------
+
+# Map fastq reads to a reference genome
+
+There are popular mapping tools such as Bowtie (https://bowtie-bio.sourceforge.net/manual.shtml), BWA (https://github.com/lh3/bwa), mummer (https://github.com/mummer4/mummer), and minimap2 (https://github.com/lh3/minimap2).
+
+We will use minimap2 to map Nanopore reads to Drosophila melanogaster mitochondrial genome.
+
+Download Nanopore reads SRR25018161 from NCBI SRA (https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR25018161&display=download)
+
+and the reference genome NC_024511.2 (https://www.ncbi.nlm.nih.gov/nuccore/NC_024511.2?report=fasta)
+
+1. Quality check the Nanopore data.
+
+2. map to the reference using miimap2
+
+```
+minimap2 -ax map-ont -I8g mtDNA_Dmel_sequence.fasta wmel_SRR25018161.fastq.gz -o aligned_mtDNA.sam
+```
+
+How many reads mapped?
+
+what is `.sam` file?
+
+3. convert and sort `.sam` to `.bam` file
+
+```
+samtools sort aligned_mtDNA.sam > aligned_mtDNA.sorted.bam
+```
+
+what is `.bam` file?
+
+4. index the `.sorted.bam` file
+
+```
+samtools index aligned_mtDNA.sorted.bam
+```
+
+5. check the alignment process using IGV (https://igv.org/doc/desktop/#DownloadPage/)
