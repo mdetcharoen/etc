@@ -1,4 +1,4 @@
-1. ทดลองผลของการใช้ปุ๋ยสามชนิดต่อความยาวของใบหญ้าคากลุ่มละ 16 ใบได้ผลความยาว (cm) ของใบดังตาราง จงสร้างกราฟจาก R ggplot2 จำนวนสองกราฟเพื่อเปรียบเทียบระหว่างการใช้ geom_jitter และ geom_dotplot				
+1. ทดลองผลของการใช้ปุ๋ยสามชนิดต่อความยาวของใบหญ้าคากลุ่มละ 16 ใบได้ผลความยาว (cm) ของใบดังตาราง จงสร้างกราฟจาก R ggplot2 เพื่อนำเสนอข้อมูลนี้				
 				
 | leaf#  | 	control | 	fertilizer1 | 	fertilizer2	 | fertilizer3
 | :---: | :---: | :---: | :---: | :---: |
@@ -21,10 +21,7 @@
 </br>
 
 				
-2. จงสร้างกราฟ scatterplot ระหว่าง area และ poptotal จากข้อมูลตัวอย่าง midwest ที่มีอยู่ใน package ggplot2 โดยจำแนกสีตามรัฐ (state)
-</br>
-				
-3. เมื่อใช้คำสั่งในโปรแกรม fastp เป็น `fastp -i in.R1.fq.gz -I in.R2.fq.gz -o out.R1.fq.gz -O out.R2.fq.gz` อยากทราบว่าข้อมูลนี้เป็นข้อมูล single end หรือ paired end
+2. เมื่อใช้คำสั่งในโปรแกรม fastp เป็น `fastp -i SRR26633039_1.fastq -o SRR26633039_1_qc.fastq -I SRR26633039_2.fastq -O SRR26633039_2_qc.fastq` อยากทราบว่าข้อมูลนี้เป็นข้อมูล single end หรือ paired end
 </br>
 
 
@@ -32,5 +29,24 @@
 </br>
 
 
-5. ในการทำ <i>de novo</i> genome assembly ของแบคทีเรียชนิดหนึ่ง เมื่อได้ assembly graph `.gfa` แล้วนำไปเปิดดูพบว่าไม่ได้มีลักษณะเป็นวงตามที่คาดหมาย เมื่อลองเปลี่ยน parameters ต่าง ๆ ใน genome assembler แล้วก็ไม่ได้เป็นวง จงอิบายสาเหตุที่เป้นไปได้และข้อเสนอแนะในการปรับปรุง				
+5. ในการทำ <i>de novo</i> genome assembly ของแบคทีเรียชนิดหนึ่ง เมื่อได้ assembly graph อยู่ในรูปไฟล์ `.gfa` แล้วนำไปเปิดดูพบว่าไม่ได้มีลักษณะเป็นวงตามที่คาดหมาย เมื่อลองเปลี่ยน parameters ต่าง ๆ ใน genome assembler แล้วก็ไม่ได้เป็นวง จงอิบายสาเหตุที่เป้นไปได้และข้อเสนอแนะในการปรับปรุง
+
+6. จากข้อมูลคำสั่งที่กำหนด นักศึกษาตอบว่าผู้ใช้กำลังทำงานใดพร้อมบอกรายละเอียดของคำสั่งที่ใช้
+   ```
+   fasterq-dump SRR26633039
+   fastp -h
+   fastp -i SRR26633039_1.fastq -o SRR26633039_1_qc.fastq -I SRR26633039_2.fastq -O SRR26633039_2_qc.fastq
+   spades.py
+   spades.py --isolate -1 SRR26633039_1_qc.fastq -2 SRR26633039_2_qc.fastq --only-assembler -o outspades
+   fasterq-dump SRR32385919
+   fastp -i SRR32385919.fastq -o SRR32385919_qc.fastq
+   flye -h
+   flye --nano-hq SRR32385919_qc.fastq -t 14 -o flyeout
+   minimap2 -ax map-ont -t 14 flyeout/selected_sequences.fasta SRR32385919_qc.fastq > mapped.sam
+   samtools view -b mapped.sam > mapped.bam
+   samtools sort mapped.bam > mapped.sorted.bam
+   samtools index mapped.sorted.bam
+   pilon --help
+   pilon --genome flyeout/selected_sequences.fasta --bam mapped.sorted.bam --output pilon_ --changes
+ ```
 
